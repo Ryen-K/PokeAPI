@@ -1,0 +1,27 @@
+<div [style.background-color]="backgroundColor()" class="background" >
+    <mat-card class="pokemon-card">
+        @if (pokemon.value()) {
+        <mat-card-header>
+            <mat-card-title>Name : {{ pokemon.value()?.name }}</mat-card-title>
+            <mat-card-subtitle>ID : {{ pokemon.value()?.id }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="pokemon.value()?.sprites?.other?.['official-artwork']?.front_default ">
+        <mat-card-content>
+            <p>
+                Type : {{ pokemon.value()?.types?.[0]?.type?.name }}
+            </p>
+            <p>
+                In short : {{ getEnglishGenus() }}
+            </p>
+            <p>
+                Description : {{ getDescription() }}
+            </p>
+        </mat-card-content>
+        } @else {
+            <mat-card-content>
+                <h1>Unable to load content</h1>
+            </mat-card-content>
+        }
+    </mat-card>
+
+</div>
